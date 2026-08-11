@@ -1,0 +1,11 @@
+COMMERCIAL-INTERNAL.md
+*-INTERNAL.md
+*-internal.md
+
+*.pdf
+*.xlsx
+*.docx
+*.doc
+
+.DS_Store
+.claude/
