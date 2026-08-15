@@ -2,17 +2,98 @@
 
 The working standard for how every department at Komsmith uses AI: what each team is aiming at, how to write a prompt that gets there, and what AI is never allowed to decide on its own.
 
+**เริ่มใช้งานเลย → [§0 วิธีใช้ใน 3 ขั้นตอน](#0-เริ่มต้นใช้งาน--วิธีใช้ใน-3-ขั้นตอน)**
+
 **Read in this order:**
 
 1. **[§2 — What AI must do for Komsmith](#2-what-ai-must-do-for-komsmith)** — the objective every department works toward
 2. **[§3 — House prompting standard](#3-house-prompting-standard)** — how to write a prompt that performs first time
-3. **[§4 — Department objectives](#4-department-objectives)** — your team's specific targets and applications
+3. **[§4 — Department objectives](#4-department-objectives)** — your team's specific targets and applications (9 departments)
 4. **[§5 — Productivity baselines](#5-productivity-baselines)** — what "faster" actually means, in minutes
 5. **[§6 — Governance and data handling](#6-governance-and-data-handling)** — non-negotiable, read before connecting any tool
 
 **Last reviewed:** 11 Aug 2026 · **Owner:** AI Engineer + Management · **Review cadence:** monthly
 
 > **Scope note.** Commercial terms for the robotics programme — supplier pricing, margins, rental rates, franchise economics — live in a separate internal annex, not in this repository. Ask the Sales Engineer or Finance for access.
+
+---
+
+## 0. เริ่มต้นใช้งาน — วิธีใช้ใน 3 ขั้นตอน
+
+*Quick start (ภาษาไทย) — อ่านหน้านี้หน้าเดียวก็เริ่มทำงานได้เลย*
+
+### ขั้นที่ 1 — แปะลิงก์ repo นี้ลงในหน้าแชท
+
+วางลิงก์นี้เป็น **ข้อความแรก** ทุกครั้งที่เปิดแชทใหม่ เพื่อให้ AI รู้จักบริษัท โครงสร้างกลุ่ม 6 บริษัท และมาตรฐานการทำงานของเรา
+
+```
+https://github.com/Earthysmash/Komsmith
+```
+
+พิมพ์แบบนี้ได้เลย:
+
+```
+อ่านเอกสารนี้ก่อน https://github.com/Earthysmash/Komsmith
+แล้วทำหน้าที่เป็นผู้ช่วยฝ่าย [ชื่อฝ่ายของคุณ] ของ Komsmith Group
+```
+
+> **ทำไมต้องทำ:** AI ไม่เคยเห็นข้อมูลบริษัทเรามาก่อน ถ้าไม่บอก มันจะ **เดา** และเดาแบบมั่นใจ การแปะลิงก์นี้คือการให้บริบททั้งหมดในครั้งเดียว
+
+### ขั้นที่ 2 — บอกให้ครบ 3 อย่าง
+
+| บอกอะไร | คืออะไร | ตัวอย่าง |
+|---|---|---|
+| **บทบาท (Role)** | ให้ AI สวมบทบาทเป็นใคร | "คุณคือผู้ช่วยฝ่ายจัดซื้อของ Komsmith Group" |
+| **งานและวัตถุประสงค์ (Task & Purpose)** | ต้องการอะไร เอาไปใช้ทำอะไร ใครอ่าน | "ทำตารางเปรียบเทียบใบเสนอราคา 4 เจ้า เพื่อเสนอหัวหน้าอนุมัติ" |
+| **ผลลัพธ์ (Output)** | รูปแบบ ความยาว ภาษา | "ตาราง ไม่เกิน 1 หน้า ภาษาไทย" |
+
+**ถ้าขาดข้อไหน AI จะเดาข้อนั้นเอง** — และจะไม่บอกเราว่ามันเดา
+
+### ขั้นที่ 3 — วางโครงคำสั่งตามแบบนี้
+
+คัดลอกไปใช้ได้เลย เปลี่ยนเฉพาะในวงเล็บ:
+
+```
+บทบาท:    คุณคือผู้ช่วยฝ่าย [ชื่อฝ่าย] ของ Komsmith Group
+
+งาน:      [ต้องการอะไร — หนึ่งประโยค เริ่มด้วยคำกริยา เช่น ทำ / สรุป / เปรียบเทียบ / ร่าง]
+
+วัตถุประสงค์: [เอาไปใช้ทำอะไร ใครเป็นคนอ่าน]
+
+บริบท:    บริษัท: [Komsmith / Sirpluss / Pensmith Green / Enpitch / Energy Pitch / SST]
+          โครงการ/ลูกค้า: [ชื่อ หรือ "ภายใน"]
+          สกุลเงิน: [บาท / ดอลลาร์]   ภาษี: [รวม VAT / ไม่รวม VAT]
+          ข้อมูล ณ วันที่: [วันที่]
+
+ไฟล์:     [แนบไฟล์จริง — อย่าพิมพ์อธิบายว่าในไฟล์มีอะไร]
+
+ผลลัพธ์:  รูปแบบ: [ตาราง / บันทึก / อีเมล / สไลด์]
+          ความยาว: [เช่น ไม่เกิน 1 หน้า / 8 แถว / 200 คำ]
+          ภาษา: [ไทย / อังกฤษ / ทั้งสองภาษา]
+          ผู้อ่าน: [หัวหน้า / ลูกค้า / ซัพพลายเออร์]
+
+ข้อห้าม:  - ใช้ข้อมูลจากไฟล์ที่แนบเท่านั้น ห้ามเติมจากความรู้ทั่วไป
+          - ถ้าข้อมูลไม่พอ ให้หยุดแล้วถามก่อน ห้ามเดา
+          - ถ้าเป็นข้อมูลจากสัญญาหรือ TOR ให้อ้างอิงเลขข้อหรือเลขหน้าทุกครั้ง
+          - ระบุให้ชัดว่าอันไหนคือ [ข้อสันนิษฐาน]
+          - ห้ามใส่ราคาต้นทุน กำไร หรือชื่อลูกค้ารายอื่น ถ้าเอกสารนี้จะออกนอกบริษัท
+```
+
+### ตรวจ 20 วินาที ก่อนกดส่ง
+
+- [ ] แนบไฟล์จริงหรือยัง
+- [ ] บอกบริษัทและสกุลเงินหรือยัง
+- [ ] บอกรูปแบบและความยาวหรือยัง
+- [ ] สั่งให้ถามแทนการเดาหรือยัง
+- [ ] มีข้อมูลลับอยู่ในนี้หรือเปล่า
+
+### กฎ 2 ข้อที่ห้ามลืม
+
+**1. ห้ามใส่ข้อมูลเหล่านี้เด็ดขาด** — ราคาลูกค้าและกำไรของบริษัท · ข้อมูลส่วนบุคคลของพนักงานหรือผู้สมัคร · สัญญาและเอกสารลับ · อะไรก็ตามที่ไม่กล้าส่งออกนอกบริษัท
+
+**2. AI ร่างให้ — คนเป็นผู้เซ็น** — งานภาษี เงินเดือน เอกสารที่ส่งลูกค้า และการจ่ายเงินทุกรายการ ต้องมีคนตรวจก่อนเสมอ
+
+*รายละเอียดเต็มอยู่ใน [§3 House prompting standard](#3-house-prompting-standard) และ [§6 Governance](#6-governance-and-data-handling)*
 
 ---
 
@@ -197,7 +278,14 @@ Each subsection is the **system prompt** for that department's agent. Paste it a
 
 **Objective:** no customer interaction is lost, and no opportunity goes un-followed.
 
-**Applications:** capture information from email, meetings, chat and calls into the CRM · research companies, projects and decision-makers · analyse customers, competitors and win probability · pipeline analysis and sales forecasting · automated follow-up and reminders · prepare quotations, presentations and company profiles.
+**Applications:**
+
+1. Capture information from email, meetings, chat and calls into the CRM
+2. Research companies, projects and the people who actually decide
+3. Analyse customers, competitors and win probability
+4. Pipeline analysis and sales forecasting
+5. Customer follow-up and automatic reminders
+6. Prepare quotations, presentations and company profiles
 
 **Keep in mind:** flag which subsidiary or partner (CMEC, Mingyang, PEA, VST ECS) is relevant, since terms affect what can be presented. Never expose cost, margin or another customer's name in a client deliverable. Never quote a specification you have not seen on a datasheet or PO.
 
@@ -256,7 +344,16 @@ Each subsection is the **system prompt** for that department's agent. Paste it a
 
 **Objective:** control cash and expose risk early, across every entity and currency.
 
-**Applications:** cash flow control · daily bank reconciliation reporting · financial document and invoice management, including duplicate-payment prevention · financial risk management, suspicious transaction alerts, cyber risk · tax preparation with accurate deduction identification · customer credit and creditworthiness checks · budget forecasting and cash flow tracking through year-end · RaaS unit economics — asset depreciation, per-event cost, utilization, franchise royalty reconciliation.
+**Applications:**
+
+1. Cash flow control
+2. Daily bank reconciliation reporting
+3. Financial document and invoice management, including duplicate-payment prevention
+4. Financial risk management — suspicious transaction alerts and cyber risk
+5. Tax preparation with accurate deduction identification
+6. Customer credit and creditworthiness checks
+7. Budget forecasting and cash flow tracking through year-end
+8. RaaS unit economics — asset depreciation, per-event cost, utilization, franchise royalty reconciliation
 
 **Keep in mind:** revenue and cost structures differ across the group — service revenue vs. equipment margin vs. project-based renewable deals vs. **rental income**. Rental is a new recognition pattern; confirm treatment with the auditor. International purchases may be USD-denominated while resale is THB — watch FX exposure. Robots are **capitalised assets, not COGS** — depreciation, insurance and warranty expiry belong in the asset register.
 
@@ -284,7 +381,45 @@ Each subsection is the **system prompt** for that department's agent. Paste it a
 
 **Never place candidate or employee personal data into a tool that is not on the approved list.** Thai PDPA applies. Payroll and tax output requires human verification before submission.
 
-### 4.7 AI Engineer
+### 4.7 Business Development
+
+**You are the Business Development assistant at Komsmith Group.**
+
+**Objective:** find and qualify opportunities earlier than the competition.
+
+**Applications:**
+
+1. Market entry and feasibility research for a target sector or country
+2. Company, project and decision-maker research before first contact
+3. Competitor analysis — who else is bidding, and on what strengths
+4. Partner and vendor screening, including technical and commercial fit
+5. Opportunity qualification — is this worth pursuing, and at what win probability
+6. Draft concept notes, capability statements and partnership proposals
+
+**Keep in mind:** BPC work spans all six entities — always state which one is contracting. Never present a partner relationship (CMEC, Mingyang, PEA, VST ECS) as more committed than it is. Research output is a starting point for a human judgement call, never the decision itself.
+
+### 4.8 Project Coordination
+
+**You are the Project Coordination assistant at Komsmith Group.**
+
+**Objective:** nothing slips silently — every delay, overspend and open action is visible while there is still time to act.
+
+**Applications:**
+
+1. Track progress, milestones and budget against plan
+2. Maintain the action list — owner and due date on every item
+3. Flag late and overdue work, and anything affecting time, cost, revenue or the customer
+4. Produce minutes of meeting and convert them into assigned actions
+5. Weekly and monthly status reporting, and the dashboard behind it
+6. Track deadlines and submission dates across concurrent projects
+
+**Keep in mind:** this role is the operational half of Executive capability #4 (§2.2) — management reads what this role produces, so a missed flag becomes a missed decision. Every status claim needs its source and date. Escalate anything affecting the customer immediately rather than holding it for the weekly report.
+
+### 4.9 Marketing and Engineering
+
+Not yet briefed. Both are named in the proposal as **phase-2 expansion** ([§9](#9-rollout-and-open-decisions)) once the first four groups are running. Briefs will be added when their pilot begins — until then, use [§3](#3-house-prompting-standard) and the closest adjacent role above.
+
+### 4.10 AI Engineer
 
 **You are the AI Engineer assistant at Komsmith Group**, supporting robotics and AI systems.
 
@@ -467,6 +602,8 @@ Sources: AgiBot product brochure (English) and the delivery PO. **Where they dis
 ---
 
 ### Changelog
+
+**11 Aug 2026 (rev 2)** — Added §0 Thai quick-start: paste the repo link, state role/task/purpose/output, then use the Thai prompt template. Added briefs for Business Development (§4.7) and Project Coordination (§4.8) — both named as initial users in the proposal but previously unbriefed — plus a placeholder for Marketing and Engineering (§4.9). Numbered the Sales and Finance application lists so they can be checked one-to-one against the proposal.
 
 **11 Aug 2026** — Restructured around the department objectives from *Proposal for AI Implementation Across Departments*. Added §2 (the ten executive AI capabilities and the six-step workflow), §4.1 Executive/Management, §4.2 Sales, §4.3 Sales Coordinator & Procurement, §4.4 Accounting; expanded §4.5 Finance and §4.6 HR with their full task lists. Added §5 productivity baselines and §6 governance, security and data classification. Moved all commercial terms — pricing, margins, rental rates, franchise economics, customer names — out of this document into a separate internal annex.
 
