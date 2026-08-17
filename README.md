@@ -4,15 +4,18 @@ The working standard for how every department at Komsmith uses AI: what each tea
 
 **เริ่มใช้งานเลย → [§0 วิธีใช้ใน 3 ขั้นตอน](#0-เริ่มต้นใช้งาน--วิธีใช้ใน-3-ขั้นตอน)**
 
+**สั่งงาน AI แบบละเอียด รวมถึงสั่งสร้างรูปภาพ → [PROMPTING.md](PROMPTING.md)**
+*Standalone prompting guide — text prompting (Part A) and image generation (Part B). Hand this one out in training.*
+
 **Read in this order:**
 
 1. **[§2 — What AI must do for Komsmith](#2-what-ai-must-do-for-komsmith)** — the objective every department works toward
-2. **[§3 — House prompting standard](#3-house-prompting-standard)** — how to write a prompt that performs first time
+2. **[§3 — House prompting standard](#3-house-prompting-standard)** — how to write a prompt that performs first time (full guide incl. images: **[PROMPTING.md](PROMPTING.md)**)
 3. **[§4 — Department objectives](#4-department-objectives)** — your team's specific targets and applications (9 departments)
 4. **[§5 — Productivity baselines](#5-productivity-baselines)** — what "faster" actually means, in minutes
 5. **[§6 — Governance and data handling](#6-governance-and-data-handling)** — non-negotiable, read before connecting any tool
 
-**Last reviewed:** 11 Aug 2026 · **Owner:** AI Engineer + Management · **Review cadence:** monthly
+**Last reviewed:** 17 Aug 2026 · **Owner:** AI Engineer + Management · **Review cadence:** monthly
 
 > **Scope note.** Commercial terms for the robotics programme — supplier pricing, margins, rental rates, franchise economics — live in a separate internal annex, not in this repository. Ask the Sales Engineer or Finance for access.
 
@@ -95,6 +98,8 @@ https://github.com/Earthysmash/Komsmith
 
 *รายละเอียดเต็มอยู่ใน [§3 House prompting standard](#3-house-prompting-standard) และ [§6 Governance](#6-governance-and-data-handling)*
 
+*อยากสั่งให้ AI **สร้างรูปภาพ** ด้วย → [PROMPTING.md ส่วน B](PROMPTING.md#ส่วน-b--สั่งสร้างรูปภาพ)*
+
 ---
 
 ## 1. Company Context
@@ -164,6 +169,8 @@ A piece of AI work that stops at "analyse" is unfinished. Every output should en
 ## 3. House Prompting Standard
 
 > The biggest driver of output quality is not which tool we buy — it is whether the prompt carries the context the model cannot guess. Mandatory reading for everyone.
+
+**Full standalone version — including image generation — is [PROMPTING.md](PROMPTING.md).** This section is the summary; that file is what gets handed out in training.
 
 ### 3.1 The six blocks
 
@@ -419,6 +426,8 @@ Each subsection is the **system prompt** for that department's agent. Paste it a
 
 Not yet briefed. Both are named in the proposal as **phase-2 expansion** ([§9](#9-rollout-and-open-decisions)) once the first four groups are running. Briefs will be added when their pilot begins — until then, use [§3](#3-house-prompting-standard) and the closest adjacent role above.
 
+**Marketing, start here:** [PROMPTING.md Part B](PROMPTING.md#ส่วน-b--สั่งสร้างรูปภาพ) — image-generation prompting, aspect-ratio table, and the rules on what AI-generated imagery may and may not be used for (no AI images standing in for real product, robot or project photos; no AI-drawn logos or certification marks; PDPA on event faces).
+
 ### 4.10 AI Engineer
 
 **You are the AI Engineer assistant at Komsmith Group**, supporting robotics and AI systems.
@@ -489,6 +498,8 @@ AI drafts. A person approves. Always, for:
 | **Public** | Published specs, marketing material, company profile | No restriction |
 
 **Thai PDPA applies** to all personal data — candidates, employees, and any face or voice captured by the robots at public events. Default to no retention unless there is a documented reason and consent.
+
+**Generated imagery is governed too.** AI-generated images may not stand in for real product, robot or project photography; AI-drawn logos and certification marks are never used; and generated imagery leaving Komsmith is labelled *ภาพประกอบ / Illustration*. Full rules: [PROMPTING.md §B9](PROMPTING.md#b9-ข้อห้ามและกฎบังคับ).
 
 ### 6.4 Accuracy standard
 
@@ -602,6 +613,8 @@ Sources: AgiBot product brochure (English) and the delivery PO. **Where they dis
 ---
 
 ### Changelog
+
+**17 Aug 2026** — Split the prompting standard out into a standalone [PROMPTING.md](PROMPTING.md) so it can be handed out on its own in training. Part A is the text-prompting standard (6 blocks, 7 rules, 20-second check, weak→strong examples per department); **Part B is new — image-generation prompting**: how image models differ from text models, a tool-selection table (what should *not* be AI-generated), an 8-field image prompt structure with Thai and English templates, an aspect-ratio table, six worked briefs, a prompt vocabulary list, single-variable iteration guidance, and the governance rules for generated imagery. §3, §4.9 and §6.3 now point to it.
 
 **11 Aug 2026 (rev 2)** — Added §0 Thai quick-start: paste the repo link, state role/task/purpose/output, then use the Thai prompt template. Added briefs for Business Development (§4.7) and Project Coordination (§4.8) — both named as initial users in the proposal but previously unbriefed — plus a placeholder for Marketing and Engineering (§4.9). Numbered the Sales and Finance application lists so they can be checked one-to-one against the proposal.
 
