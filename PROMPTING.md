@@ -6,7 +6,7 @@
 
 *Standalone companion to the [README](README.md). Part A covers text prompting, Part B covers image generation.*
 
-**Last reviewed:** 17 Aug 2026 · **Owner:** AI Engineer · **Review cadence:** monthly
+**Last reviewed:** 25 Aug 2026 · **Owner:** AI Engineer · **Review cadence:** monthly
 
 ---
 
@@ -43,12 +43,7 @@
 >
 > *The model cannot guess our context. Whatever you leave out, it fills in — confidently.*
 
-ทุกครั้งที่เปิดแชทใหม่ ให้แปะลิงก์นี้เป็นข้อความแรก:
-
-```
-อ่านเอกสารนี้ก่อน https://github.com/Earthysmash/Komsmith
-แล้วทำหน้าที่เป็นผู้ช่วยฝ่าย [ชื่อฝ่ายของคุณ] ของ Komsmith Group
-```
+ทางแก้คือให้มันอ่าน repo นี้ก่อน แล้วค่อยสั่งงาน — **ซึ่งรวมอยู่ในบล็อกเดียวกันแล้วใน [A2](#a2-โครงคำสั่ง-6-ช่อง) คัดลอกครั้งเดียวจบ**
 
 ---
 
@@ -63,9 +58,13 @@
 | 5 | **ผลลัพธ์** Output | รูปแบบ ความยาว ภาษา ใครอ่าน | ได้เรียงความ ตอนที่อยากได้ตาราง |
 | 6 | **ข้อห้าม** Constraints | ห้ามทำอะไร ถ้าไม่รู้ให้ทำอย่างไร | มันแต่งขึ้นมา และข้อมูลลับรั่ว |
 
-**เทมเพลต — คัดลอกไปใช้ เปลี่ยนเฉพาะในวงเล็บ**
+**เทมเพลต — คัดลอกทั้งบล็อก เปลี่ยนเฉพาะในวงเล็บ**
+
+บรรทัดแรกคือการให้ AI อ่าน repo — ใส่เฉพาะ**ครั้งแรกของแชท** ครั้งถัดไปในแชทเดียวกัน ตัดออกได้
 
 ```
+อ่านเอกสารนี้ก่อน https://github.com/Earthysmash/Komsmith
+
 บทบาท:    คุณคือผู้ช่วยฝ่าย [ชื่อฝ่าย] ของ Komsmith Group
 
 งาน:      [ต้องการอะไร — หนึ่งประโยค เริ่มด้วยคำกริยา: ทำ / สรุป / เปรียบเทียบ / ร่าง]

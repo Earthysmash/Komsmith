@@ -2,7 +2,7 @@
 
 The working standard for how every department at Komsmith uses AI: what each team is aiming at, how to write a prompt that gets there, and what AI is never allowed to decide on its own.
 
-**เริ่มใช้งานเลย → [§0 วิธีใช้ใน 3 ขั้นตอน](#0-เริ่มต้นใช้งาน--วิธีใช้ใน-3-ขั้นตอน)**
+**เริ่มใช้งานเลย → [§0 คัดลอกบล็อกเดียว จบ](#0-เริ่มต้นใช้งาน--คัดลอกบล็อกเดียว-จบ)**
 
 **สั่งงาน AI แบบละเอียด รวมถึงสั่งสร้างรูปภาพ → [PROMPTING.md](PROMPTING.md)**
 *Standalone prompting guide — text prompting (Part A) and image generation (Part B). Hand this one out in training.*
@@ -15,48 +15,23 @@ The working standard for how every department at Komsmith uses AI: what each tea
 4. **[§5 — Productivity baselines](#5-productivity-baselines)** — what "faster" actually means, in minutes
 5. **[§6 — Governance and data handling](#6-governance-and-data-handling)** — non-negotiable, read before connecting any tool
 
-**Last reviewed:** 17 Aug 2026 · **Owner:** AI Engineer + Management · **Review cadence:** monthly
+**Last reviewed:** 25 Aug 2026 · **Owner:** AI Engineer + Management · **Review cadence:** monthly
 
 > **Scope note.** Commercial terms for the robotics programme — supplier pricing, margins, rental rates, franchise economics — live in a separate internal annex, not in this repository. Ask the Sales Engineer or Finance for access.
 
 ---
 
-## 0. เริ่มต้นใช้งาน — วิธีใช้ใน 3 ขั้นตอน
+## 0. เริ่มต้นใช้งาน — คัดลอกบล็อกเดียว จบ
 
 *Quick start (ภาษาไทย) — อ่านหน้านี้หน้าเดียวก็เริ่มทำงานได้เลย*
 
-### ขั้นที่ 1 — แปะลิงก์ repo นี้ลงในหน้าแชท
+### คัดลอกทั้งบล็อกนี้ไปวางในหน้าแชท แล้วเติมในวงเล็บ
 
-วางลิงก์นี้เป็น **ข้อความแรก** ทุกครั้งที่เปิดแชทใหม่ เพื่อให้ AI รู้จักบริษัท โครงสร้างกลุ่ม 6 บริษัท และมาตรฐานการทำงานของเรา
-
-```
-https://github.com/Earthysmash/Komsmith
-```
-
-พิมพ์แบบนี้ได้เลย:
+ทุกอย่างรวมอยู่ในบล็อกเดียวแล้ว — ไม่ต้องคัดลอกสองรอบ
 
 ```
 อ่านเอกสารนี้ก่อน https://github.com/Earthysmash/Komsmith
-แล้วทำหน้าที่เป็นผู้ช่วยฝ่าย [ชื่อฝ่ายของคุณ] ของ Komsmith Group
-```
 
-> **ทำไมต้องทำ:** AI ไม่เคยเห็นข้อมูลบริษัทเรามาก่อน ถ้าไม่บอก มันจะ **เดา** และเดาแบบมั่นใจ การแปะลิงก์นี้คือการให้บริบททั้งหมดในครั้งเดียว
-
-### ขั้นที่ 2 — บอกให้ครบ 3 อย่าง
-
-| บอกอะไร | คืออะไร | ตัวอย่าง |
-|---|---|---|
-| **บทบาท (Role)** | ให้ AI สวมบทบาทเป็นใคร | "คุณคือผู้ช่วยฝ่ายจัดซื้อของ Komsmith Group" |
-| **งานและวัตถุประสงค์ (Task & Purpose)** | ต้องการอะไร เอาไปใช้ทำอะไร ใครอ่าน | "ทำตารางเปรียบเทียบใบเสนอราคา 4 เจ้า เพื่อเสนอหัวหน้าอนุมัติ" |
-| **ผลลัพธ์ (Output)** | รูปแบบ ความยาว ภาษา | "ตาราง ไม่เกิน 1 หน้า ภาษาไทย" |
-
-**ถ้าขาดข้อไหน AI จะเดาข้อนั้นเอง** — และจะไม่บอกเราว่ามันเดา
-
-### ขั้นที่ 3 — วางโครงคำสั่งตามแบบนี้
-
-คัดลอกไปใช้ได้เลย เปลี่ยนเฉพาะในวงเล็บ:
-
-```
 บทบาท:    คุณคือผู้ช่วยฝ่าย [ชื่อฝ่าย] ของ Komsmith Group
 
 งาน:      [ต้องการอะไร — หนึ่งประโยค เริ่มด้วยคำกริยา เช่น ทำ / สรุป / เปรียบเทียบ / ร่าง]
@@ -81,6 +56,21 @@ https://github.com/Earthysmash/Komsmith
           - ระบุให้ชัดว่าอันไหนคือ [ข้อสันนิษฐาน]
           - ห้ามใส่ราคาต้นทุน กำไร หรือชื่อลูกค้ารายอื่น ถ้าเอกสารนี้จะออกนอกบริษัท
 ```
+
+> **บรรทัดแรกใส่เฉพาะครั้งแรกของแชท** — พอ AI อ่าน repo แล้ว มันจำได้ทั้งแชท คำสั่งถัดไปในแชทเดียวกัน ตัดบรรทัด `อ่านเอกสารนี้ก่อน...` ออกได้เลย
+
+### ช่องไหนสำคัญที่สุด — ถ้าไม่มีเวลา เติม 3 ช่องนี้ก่อน
+
+| ช่อง | คืออะไร | ตัวอย่าง |
+|---|---|---|
+| **บทบาท** | ให้ AI สวมบทบาทเป็นใคร | "ผู้ช่วยฝ่ายจัดซื้อของ Komsmith Group" |
+| **งาน + วัตถุประสงค์** | ต้องการอะไร เอาไปใช้ทำอะไร ใครอ่าน | "ทำตารางเทียบใบเสนอราคา 4 เจ้า เพื่อเสนอหัวหน้าอนุมัติ" |
+| **ผลลัพธ์** | รูปแบบ ความยาว ภาษา | "ตาราง ไม่เกิน 1 หน้า ภาษาไทย" |
+
+**ช่องไหนเว้นไว้ AI จะเดาช่องนั้นเอง** — และจะไม่บอกเราว่ามันเดา
+ช่องที่ไม่เกี่ยวกับงานนั้น ลบทิ้งได้เลย ไม่ต้องเก็บวงเล็บว่างไว้
+
+> **ทำไมต้องมีบรรทัดแรก:** AI ไม่เคยเห็นข้อมูลบริษัทเรามาก่อน ถ้าไม่บอก มันจะ **เดา** และเดาแบบมั่นใจ การให้อ่าน repo คือการให้บริบททั้งกลุ่ม 6 บริษัทในครั้งเดียว
 
 ### ตรวจ 20 วินาที ก่อนกดส่ง
 
@@ -613,6 +603,8 @@ Sources: AgiBot product brochure (English) and the delivery PO. **Where they dis
 ---
 
 ### Changelog
+
+**25 Aug 2026** — Merged §0 into a single copy-paste block. Staff reported that copying two separate blocks — the repo link, then the prompt template — was the main friction before sending a prompt, so the `อ่านเอกสารนี้ก่อน` line now sits at the top of the template itself and there is only one thing to copy. Added a note that the first line is only needed on the first message of a chat, and that unused fields can be deleted rather than left as empty brackets. The same merge applied to PROMPTING.md §A1–A2.
 
 **17 Aug 2026** — Split the prompting standard out into a standalone [PROMPTING.md](PROMPTING.md) so it can be handed out on its own in training. Part A is the text-prompting standard (6 blocks, 7 rules, 20-second check, weak→strong examples per department); **Part B is new — image-generation prompting**: how image models differ from text models, a tool-selection table (what should *not* be AI-generated), an 8-field image prompt structure with Thai and English templates, an aspect-ratio table, six worked briefs, a prompt vocabulary list, single-variable iteration guidance, and the governance rules for generated imagery. §3, §4.9 and §6.3 now point to it.
 
